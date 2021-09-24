@@ -27,7 +27,7 @@
             PassSec++;   // カウントアップ
             var hunkyu = document.getElementById("Zikyu").value / 3600;   // 秒給
             var msg = PassSec + "秒";   // 表示文作成
-            var msg2 = (PassSec * hunkyu) + "円";   // 表示文作成
+            var msg2 = (PassSec * hunkyu).toFixed(2) + "円";   // 表示文作成
             document.getElementById("timer").innerHTML = msg;   // 表示更新
             document.getElementById("kyuryo").innerHTML = msg2;   // 表示更新
         }
