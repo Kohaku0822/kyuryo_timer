@@ -49,7 +49,7 @@ function main(){ // ページを開いて最初にやること
     if(!urlData){ // urlDataがなかったら終了
         return false
     }
-    document.querySelector("#Zikyu").value = +urlData.zikyu ? +urlData.zikyu : 1013 // 時給のデータがなかったら東京の最低賃金を入れる
+    document.querySelector("#Zikyu").value = +urlData.zikyu ? +urlData.zikyu : 1200
     PassSec = +urlData.s ? +urlData.s : 0 // 秒を設定
 }
 
