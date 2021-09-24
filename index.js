@@ -23,3 +23,34 @@ function showPassage() {
     document.getElementById("timer").innerHTML = msg;   // 表示更新
     document.getElementById("kyuryo").innerHTML = msg2;   // 表示更新
 }
+
+function getUrlData(){ // URLパラメータをjsonにする
+    if(!document.location.search){
+        return false
+    }
+    try {
+        const url_param = JSON.parse(`{"${
+            document.location.search
+            .replace('?', '')
+            .replaceAll('&', `","`)
+            .replaceAll('=',`":"`)
+        }"}`)
+        return url_param
+    }
+    catch(e){
+        console.error('URL取得エラー')
+        window.location.href = window.location.href.split('?')[0]
+        return false
+    }
+}
+
+function main(){ // ページを開いて最初にやること
+    const urlData = getUrlData()
+    if(!urlData){ // urlDataがなかったら終了
+        return false
+    }
+    document.querySelector("#Zikyu").value = +urlData.zikyu ? +urlData.zikyu : 1013 // 時給のデータがなかったら東京の最低賃金を入れる
+    PassSec = +urlData.s ? +urlData.s : 0 // 秒を設定
+}
+
+main()
