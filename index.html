@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="index.css">
     <title>時給タイマー</title>
-
 </head>
 <body>
-    <input type="number" name="zikyu" id="Zikyu" value=1200>
-    <button onclick=start() id="start">スタート</button>
-    <button onclick=stop() id = "stop">ストップ</button>
-    <button onclick=reset() id = "reset">リセット</button>
-    <span id = "timer">タイマー</span>
-    <span id = "kyuryo">給料</span>
+    <div class="display">
+        <div id = "timer">タイマー</div>
+        <div id = "kyuryo">給料</div>
+    </div>
+    <div class="controller">
+        <input type="number" name="zikyu" id="Zikyu" value=1200>
+        <button onclick=start() id="start">スタート</button>
+        <button onclick=stop() id = "stop">ストップ</button>
+        <button onclick=reset() id = "reset">リセット</button>
+    </div>
     <script src="index.js"></script>
 </body>
 </html>

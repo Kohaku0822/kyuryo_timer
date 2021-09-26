@@ -1,0 +1,10 @@
+div {
+    text-align: center;
+}
+
+.display {
+    font-size: 10vw;
+    color: #0F1419;
+    border: solid 5px #0F1419;
+    margin: 3vmin;
+}

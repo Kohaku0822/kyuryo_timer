@@ -15,10 +15,20 @@ function reset(){
     document.getElementById("timer").innerHTML = "タイマー";
     document.getElementById("kyuryo").innerHTML = "給料";
 }
+
+function secToHour(x){
+    const data = {
+        hour : x / 3600 | 0,
+        min : x % 3600 / 60 | 0,
+        sec : x % 60
+    }
+    return `${!data.hour ? "": `${data.hour}時間`}${!data.min ? "": `${data.min}分`}${data.sec}秒`
+}
+
 function showPassage() {
     PassSec++;   // カウントアップ
     var hunkyu = document.getElementById("Zikyu").value / 3600;   // 秒給
-    var msg = PassSec + "秒";   // 表示文作成
+    var msg = secToHour(PassSec)   // 表示文作成
     var msg2 = (PassSec * hunkyu).toFixed(2) + "円";   // 表示文作成
     document.getElementById("timer").innerHTML = msg;   // 表示更新
     document.getElementById("kyuryo").innerHTML = msg2;   // 表示更新
