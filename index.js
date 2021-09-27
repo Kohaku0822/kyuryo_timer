@@ -1,5 +1,14 @@
 var PassSec = 0;
 function start() {
+    // 開始時間を設定した場合に情報を追加する
+    // 日付超えて働かない前提でコードを書く
+    if(document.querySelector("#startTime")){
+        const startTimeAry = document.querySelector("#startTime").value.split(":")
+        const startTimeS = +startTimeAry[0] * 3600 + +startTimeAry[1] * 60
+        const now = new Date()
+        const nowS = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds()
+        PassSec = nowS - startTimeS
+    }
     PassageID = setInterval('showPassage()',1000);
     document.getElementById("start").disabled = true;
     document.getElementById("reset").disabled = true;
