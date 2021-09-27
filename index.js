@@ -61,6 +61,13 @@ function main(){ // ページを開いて最初にやること
     }
     document.querySelector("#Zikyu").value = +urlData.zikyu ? +urlData.zikyu : 1200
     PassSec = +urlData.s ? +urlData.s : 0 // 秒を設定
+    if(urlData.flag == "true"|| (urlData.start ? /^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(urlData.start) : false)){
+        const setTimeInput = document.createElement("input")
+        setTimeInput.setAttribute("type", "time")
+        setTimeInput.setAttribute("id", "startTime")
+        setTimeInput.setAttribute("value", urlData.start ? urlData.start : "10:00")
+        document.querySelector(".controller").appendChild(setTimeInput)
+    }
 }
 
 main()
